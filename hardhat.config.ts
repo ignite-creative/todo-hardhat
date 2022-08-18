@@ -12,7 +12,7 @@ import './tasks/deploy';
 dotenv.config();
 
 const config: HardhatUserConfig = {
-  solidity: '0.8.4',
+  solidity: '0.8.9',
   paths: {
     artifacts: './frontend/src/artifacts'
   },
@@ -25,6 +25,13 @@ const config: HardhatUserConfig = {
     },
     ropsten: {
       url: process.env.ROPSTEN_URL || '',
+      accounts:
+        process.env.TEST_ETH_ACCOUNT_PRIVATE_KEY !== undefined
+          ? [process.env.TEST_ETH_ACCOUNT_PRIVATE_KEY]
+          : []
+    },
+    moonbase: {
+      url: process.env.MOONBASE_URL || '',
       accounts:
         process.env.TEST_ETH_ACCOUNT_PRIVATE_KEY !== undefined
           ? [process.env.TEST_ETH_ACCOUNT_PRIVATE_KEY]
