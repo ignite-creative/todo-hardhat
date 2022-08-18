@@ -43,8 +43,9 @@ describe('Task Contract', function (): void {
 
   describe('Get All Tasks', function () {
     it('should return the correct number of total tasks', async function () {
-      const taskFromChain = await taskContract.getMyTasks();
-      expect(taskFromChain.length).to.equal(NUM_TOTAL_TASKS);
+      const tasksFromChain = await taskContract.getMyTasks();
+      console.log(tasksFromChain);
+      expect(tasksFromChain.length).to.equal(NUM_TOTAL_TASKS);
     });
   });
 
